@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+    <a href="index.html"></a>
+    <a href="packages.html"></a>
+    <!-- Font icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo"><i class="hiking"></i> Pack Your Bags</a>
+        <nav class="navbar">
+            <div id="nav-close" class="times"></div>
+            <a href="index.html"><b>Home</b></a>
+            <a href="Login.html"><b>Login</b></a>
+            <a href="packages.html"><b>Packages</b></a>
+            <a href="contact.html"><b>Contact</b></a>
+        </nav>
+        <div class="icons">
+            <div id="menu-btn" class="bars"></div> 
+            <div id="search-btn" class="search"></div>
+          
+        </div>
+    </header>
+
+    <div class="search-form">
+        <div id="close-search" class="times"></div>
+        <form action="">
+        <input type="search" name="" placeholder="search here..." id="search-box">
+        <label for="search-box" class="search"></label>
+        </form>
+    </div>
+    <section class="contact" id="contact">
+    
+        <div class="wrapper1">
+            <div class="title1">
+              <h1>contact us form</h1>
+              <h3>Choose a package</h3>
+              <select name="trip" id="trip">
+                <option value="Manali">Manali</option>
+                <option value="Goa">Goa</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Darjeeling">Darjeeling</option>
+              </select>
+            </div>
+            <div class="contact-form">
+                <form method="post" action="https://script.google.com/macros/s/AKfycbwquyMYmlsPwitpEMYPilke5pWWFcuC1TfDfeUtzJQ834PgX1has-mPVdIw43zES7s/exec">
+                    <div class="input-fields">
+                        
+                        <input type="text" class="input" placeholder="Name" name="name">
+                        <span class="error-message" id="name-error"></span>
+
+                        <input type="email" class="input" placeholder="Email Address" name="email" pattern=".+@gmail\.com">
+                        <span class="error-message" id="email-error"></span>
+
+                        <input type="text" class="input" placeholder="Phone" name="phone">
+                        <span class="error-message" id="phone-error" ></span>
+                        <input type="text" class="input" placeholder="Subject" name="subject">
+                    </div>
+                    <div class="msg">
+
+                        <button type="submit" class="btn">Book now</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+            </div> 
+        
+        </section>
+<!-----------------------------------------------------BIO------------------------------------------------->
+
+
+        <section class="footer">
+    
+            <div class="box-container">
+        
+                <div class="box">
+                    <h3>Quick links</h3>
+                    <a href="index.html">home</a>    
+                    <a href="packages.html">packages</a>
+                    <a href="#query">query</a>
+                </div>
+        
+                <div class="box">
+                    <h3>extra links</h3>
+                    <a href="contact.html">ask questions</a>
+                    <a href="#">terms of use</a>
+                    <a href="#">privacy policy</a>
+                </div>
+        
+                <div class="box">
+                    <h3>contact info</h3>
+                <a href="tel:+919676723600"> <i class="phone"></i> +91 9676723600 </a>
+                <a href="mailto: bhargav8060@gmail.com"> <i class="envelope"></i> bhargav8060@gmail.com </a>
+                <a href="#"> <i class="map"></i> Vijatawada, india - 521403 </a>
+                </div>
+        
+                <div class="box">
+                    <h3>follow us</h3>
+                    <a href="https://www.facebook.com/profile.php?id=100078392725162"> <i class="facebook-f"></i> <i class="fa-brands fa-facebook" style="color:white;"></i> Facebook </a>
+                    <a href="https://instagram.com/bhargav_nalla_ "> <i class="instagram"></i> <i class="fa-brands fa-instagram" style="color:white;"></i> Instagram </a>
+                    <a href="https://www.linkedin.com/in/bhargav-nalla-042585231/"> <i class="linkedin"></i><i class="fa-brands fa-linkedin" style="color:white;"></i>  linkedin </a>
+                    <a href="https://github.com/Bhargav0326"> <i class="github"></i> <i class="fa-brands fa-github" style="color:white;"></i> Github </a>
+                </div>
+            </div>
+            <div class="credit">created by <span>Bhargav Nalla</span> | all rights reserved!</div>
+        </section>
+        <!-- footer section ends -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.querySelector('.contact-form form');
+
+        form.addEventListener('submit', function (event) {
+            clearErrorMessages();
+
+            if (isEmpty('name')) {
+                showError('name', 'Please enter your name.');
+                event.preventDefault();
+                return;
+            }
+
+            if (isEmpty('email') || !isValidEmail('email')) {
+                showError('email', 'Please enter a valid email address.');
+                event.preventDefault();
+                return;
+            }
+
+            if (isEmpty('phone') || !isValidPhone('phone')) {
+                showError('phone', 'Please enter a valid phone number.');
+                event.preventDefault();
+                return;
+            }
+
+            submitToGoogleForms();
+        });
+
+        function isValidEmail(fieldName) {
+            var emailRegex = /.+@gmail\.com/;
+            return emailRegex.test(form.querySelector('input[name="' + fieldName + '"]').value);
+        }
+
+        function isValidPhone(fieldName) {
+            var phoneRegex = /^\d{10}$/; 
+            return phoneRegex.test(form.querySelector('input[name="' + fieldName + '"]').value);
+        }
+
+        function isEmpty(fieldName) {
+            return form.querySelector('input[name="' + fieldName + '"]').value.trim() === '';
+        }
+
+        function showError(fieldName, errorMessage) {
+            var errorElement = document.getElementById(fieldName + '-error');
+            errorElement.textContent = errorMessage;
+        }
+
+        function clearErrorMessages() {
+            var errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(function (element) {
+                element.textContent = '';
+            });
+        }
+
+    });
+</script>
+<script src="js/script.js"></script>
+
+<!-- https://docs.google.com/spreadsheets/d/1OeRoKWcEeN9PxLhzUybNIgKsjebVQcKoY61kPQQplXg/edit?pli=1#gid=0 -->
+
+</body>
+</html>
